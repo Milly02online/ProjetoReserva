@@ -1,12 +1,31 @@
 {
   "name": "reserva",
   "version": "1.0.0",
-  "description": "",
+  "description": "Projeto criado na Linguagem de Programação\r Curso Técnico de Informática Integrado ao Ensino Médio\r Instituto Federal de São Paulo - Campus Caraguatatuba",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["Node.JS", "MongoDB", "JavaScript"],
+  "keywords": [
+    "Node.JS",
+    "MongoDB",
+    "JavaScript"
+  ],
   "author": "Kamilly Santos",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.3",
+    "multer": "^1.4.5-lts.1",
+    "yup": "^1.4.0"
+  },
+  "bundleDependencies": [
+    "nodemon"
+  ],
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "sucrase": "^3.35.0"
+  }
 }
