@@ -7,10 +7,21 @@
 */
 
 import User from '../models/User'
-import * as Yup from 'yup'
+import * as Yup from 'yup' //valida dados
 
 class SessionController {
-  async store(req,res) {
-    
+  async store(req,res) {  //adicionar
+    const schema = Yup.object().shape({
+      email: Yup.string().email().required(),
+    })
+    const { email } = req.body //o if vai responder - vai mander responder
+    if(!(await schema.isValid(req.body))) { //pergunta se foi validado
+      return res.status(400).json({ error: 'Falha na validação'})
+    }
+    let user = await User.findOne({ email }) //acha um email, loga se tiver e cria se nao tiver
+    if(!user) {
+      user = await User.create({ email })
+    }
+    return res.json(user)
   }
 }
