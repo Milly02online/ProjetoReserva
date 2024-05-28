@@ -10,7 +10,10 @@ dotenv.config()
 class App{
   constructor() {
     this.server = express() //ativar o servidor
-    mongoose.connect(process.env.DATABASE, {}) //executar o servidor
+    mongoose.connect(process.env.DATABASE, {
+      // useNewUrlParser: true,
+      // useUnifiedTopology: true
+    }) //executar o servidor
     this.middlewares() //conectar com o middle
     this.routes() //conectar com o routes
   }
@@ -21,7 +24,7 @@ class App{
       '/files',
       express.static(path.resolve(__dirname, '..', 'uploads')) //subir na pasta uploads automatico
     ) //caminho que grava os arquivos
-    this.server.use(routes)
+    this.server.use(express.json())
   }
 
   routes() {

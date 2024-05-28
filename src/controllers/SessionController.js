@@ -10,10 +10,11 @@ import User from '../models/User'
 import * as Yup from 'yup' //valida dados
 
 class SessionController {
-  async store(req,res) {  //adicionar
+  async store(req, res) {  //adicionar
     const schema = Yup.object().shape({
-      email: Yup.string().email().required(),
+      email: Yup.string().email().required()
     })
+    
     const { email } = req.body //o if vai responder - vai mander responder
     if(!(await schema.isValid(req.body))) { //pergunta se foi validado
       return res.status(400).json({ error: 'Falha na validação'})
@@ -25,3 +26,5 @@ class SessionController {
     return res.json(user)
   }
 }
+
+export default new SessionController()
