@@ -14,7 +14,7 @@ class HouseController {
       description: Yup.string().required(),
       price: Yup.number().required(),
       location: Yup.string().required(),
-      satus: Yup.boolean().required(),
+      status: Yup.boolean().required(),
     })
     const { filename } = req.file
     const { description, price, location, status } = req.body

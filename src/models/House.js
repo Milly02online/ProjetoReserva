@@ -18,7 +18,7 @@ const HouseSchema = new Schema({
 
 HouseSchema.virtual('thumbnail_url').get(function() {
   return `https://localhost:4000/files/${this.thumbnail}`
-})
+});
 
 // `` = variavel
 
